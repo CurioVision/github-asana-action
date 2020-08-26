@@ -67,7 +67,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: everphone-gmbh/github-asana-action
+      - uses: CurioVision/github-asana-action
         if: github.event.pull_request.merged
         with:
           asana-pat: ${{ secrets.ASANA_PAT }}
@@ -88,12 +88,12 @@ jobs:
     steps:
       - name: set pr number
         run: echo "::set-env name=PR_NUMBER::$(echo -n "${GITHUB_REF}" | awk 'BEGIN { FS = "/" } ; { print $3 }')"
-      - uses: everphone-gmbh/github-asana-action
+      - uses: CurioVision/github-asana-action
         with:
           asana-pat: ${{ secrets.ASANA_PAT }}
           action: 'add-comment'
           comment-id: "#pr:${{env.PR_NUMBER}}"
-          text: 'View Pull Request: https://github.com/everphone-gmbh/frontend-symfony/pull/${{env.PR_NUMBER}}'
+          text: 'View Pull Request: https://github.com/CurioVision/bridalvision/pull/${{env.PR_NUMBER}}'
           is-pinned: true
 ```
 
@@ -110,7 +110,7 @@ jobs:
     steps:
       - name: set pr number
         run: echo "::set-env name=PR_NUMBER::$(echo -n "${GITHUB_REF}" | awk 'BEGIN { FS = "/" } ; { print $3 }')"
-      - uses: everphone-gmbh/github-asana-action
+      - uses: CurioVision/github-asana-action
         if: github.event.pull_request.merged
         with:
           asana-pat: ${{ secrets.ASANA_PAT }}
@@ -130,7 +130,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: everphone-gmbh/github-asana-action
+      - uses: CurioVision/github-asana-action
         with:
           asana-pat: ${{ secrets.ASANA_PAT }}
           action: assert-link
@@ -150,7 +150,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: everphone-gmbh/github-asana-action
+      - uses: CurioVision/github-asana-action
         if: github.event.pull_request.merged
         with:
           asana-pat: ${{ secrets.ASANA_PAT }}
